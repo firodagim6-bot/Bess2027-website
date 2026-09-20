@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,48 +11,197 @@
             text-align: center;
             background: #f0f8ff;
             margin: 0;
+            padding: 0;
         }
 
         header {
             background: navy;
             color: white;
-            padding: 25px;
+            padding: 40px 20px;
         }
 
-        h2 {
-            color: navy;
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 2px;
         }
 
-        p {
+        .subtitle {
+            font-size: 20px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .btn {
+            background-color: navy;
+            color: white;
+            padding: 12px 25px;
             font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-download {
+            background-color: #28a745;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        #page2 {
+            display: none;
+        }
+
+        .exam-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .exam-card h3 {
+            color: navy;
+            border-bottom: 2px solid navy;
+            padding-bottom: 5px;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 450px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>WELCOME TO BESS2027</h1>
-        <p>BETEL EVANGELICA SECONDARY SCHOOL</p>
-    </header>
+    <!-- FUULA 1FFAA (Home Page) -->
+    <div id="page1">
+        <header>
+            <h1>BESS</h1>
+            <p class="subtitle">Betel Evangelica Secondary School</p>
+        </header>
 
-    <h2>About Our School</h2>
-    <p>Welcome to BESS2027 official website!</p>
+        <div class="container">
+            <h2>Welcome to BESS Official Website</h2>
+            <p>Click below to proceed to the exam portal.</p>
+            
+            <button class="btn" onclick="showNextPage()">NEXT</button>
+        </div>
+    </div>
 
+    <!-- FUULA 2FFAA (Exam Page) -->
+    <div id="page2">
+        <header>
+            <h1>BESS EXAM PORTAL</h1>
+            <p class="subtitle">Betel Evangelica Secondary School</p>
+        </header>
 
-      <a href="2018 MATHEMATICS ONLINE EXAM SIMULATED (1).pdf" download>2018 Mathematics Online Exam Download Godhi</a>
+        <div class="container">
+            <h2>Natural Sciences Exam 2018 EU</h2>
+            <p>You can view the exams below or download them directly.</p>
 
+            <!-- 1. BIOLOGY -->
+            <div class="exam-card">
+                <h3>1. 2018 Biology Online EUEE Exam</h3>
+                <iframe class="pdf-viewer" src="2018 Biology online EUEE exam p1 .pdf"></iframe>
+                <br>
+                <a href="2018 Biology online EUEE exam p1 .pdf" download class="btn btn-download">DOWNLOAD BIOLOGY PDF</a>
+            </div>
 
-    
+            <!-- 2. CHEMISTRY -->
+            <div class="exam-card">
+                <h3>2. 2018 Chemistry EUEE Exam</h3>
+                <iframe class="pdf-viewer" src="2018 Chemistry EUEE Exam.pdf"></iframe>
+                <br>
+                <a href="2018 Chemistry EUEE Exam.pdf" download class="btn btn-download">DOWNLOAD CHEMISTRY PDF</a>
+            </div>
 
-    
+            <!-- 3. PHYSICS -->
+            <div class="exam-card">
+                <h3>3. 2018 Physics Online Exam</h3>
+                <iframe class="pdf-viewer" src="2018 Physics Online exam by (1).pdf"></iframe>
+                <br>
+                <a href="2018 Physics Online exam by (1).pdf" download class="btn btn-download">DOWNLOAD PHYSICS PDF</a>
+            </div>
 
-    <h2>Our Services</h2>
-    <p>Education | Technology | Information</p>
+            <!-- 4. MATHEMATICS -->
+            <div class="exam-card">
+                <h3>4. 2018 Online Mathematics Exam</h3>
+                <iframe class="pdf-viewer" src="2018 Online Mathematics exam (simulated).pdf"></iframe>
+                <br>
+                <a href="2018 Online Mathematics exam (simulated).pdf" download class="btn btn-download">DOWNLOAD MATHS PDF</a>
+            </div>
+
+            <!-- 5. SAT EXAM -->
+            <div class="exam-card">
+                <h3>5. 2018 SAT Online Exam</h3>
+                <iframe class="pdf-viewer" src="2018 SATOnline exam by.pdf"></iframe>
+                <br>
+                <a href="2018 SATOnline exam by.pdf" download class="btn btn-download">DOWNLOAD SAT PDF</a>
+            </div>
+
+            <br>
+            <button class="btn" style="background-color: gray;" onclick="showPreviousPage()">Back to Home</button>
+        </div>
+    </div>
 
     <footer>
         <p>© 2027 BESS2027</p>
+        <p>Created by <strong>Efrem Dagim</strong> | Telegram: <a href="https://t.me/Efi108" target="_blank">@Efi108</a></p>
     </footer>
+
+    <!-- JS fuula geeddaruf -->
+    <script>
+        function showNextPage() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
+            window.scrollTo(0, 0);
+        }
+
+        function showPreviousPage() {
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page1").style.display = "block";
+            window.scrollTo(0, 0);
+        }
+    </script>
 
 </body>
 </html>
