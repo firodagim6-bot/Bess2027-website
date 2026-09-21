@@ -35,16 +35,6 @@
             border-bottom-right-radius: 30px;
         }
 
-        /* LOGO STYLING */
-        .header-logo {
-            width: 90px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
         header h1 {
             font-size: 42px;
             font-weight: 700;
@@ -90,6 +80,24 @@
             color: #6c757d;
             font-size: 15px;
             margin-bottom: 20px;
+        }
+
+        /* SELECT DROPDOWN STYLING */
+        .book-select-container {
+            margin-bottom: 20px;
+        }
+
+        .book-select {
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: 2px solid #4361ee;
+            outline: none;
+            background-color: #fff;
+            color: #1b263b;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         /* BUTTON STYLING */
@@ -145,7 +153,6 @@
 <body>
 
     <header>
-        <img src="bess.jpg" alt="BESS Logo" class="header-logo">
         <h1>BESS2027</h1>
         <div class="subtitle">Official Student Portal</div>
     </header>
@@ -153,30 +160,54 @@
     <div class="container">
         <div class="hero-card">
             <h2>Kitaaba Dubbisaa</h2>
-            <p>Kitaaba guutuu asuma irratti dubbisuu ykn gara Full Screen'tti jijjiiruudhaan ilaaluu dandeessu.</p>
+            <p>Kitaaba dubbisuu barbaaddu filachuun asuma irratti dubbisi.</p>
 
-            <!-- Qabduulee To'annoo -->
-            <div class="btn-container">
-                <a href="kitaaba.pdf" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Tab Haaraatti Bani</a>
-                <button class="btn" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
+            <!-- FILANNOO KITAABOTA GARAA GARAA -->
+            <div class="book-select-container">
+                <select id="bookSelect" class="book-select" onchange="changeBook()">
+                    <option value="kitaaba1.pdf">Kitaaba 1ffa (Fakkeenyaaf: Hisaaba)</option>
+                    <option value="kitaaba2.pdf">Kitaaba 2ffa (Fakkeenyaaf: Saayinsii)</option>
+                    <option value="kitaaba3.pdf">Kitaaba 3ffa (Fakkeenyaaf: Afaan Oromoo)</option>
+                </select>
             </div>
 
-            <!-- Bakka Kitaabni (PDF) Itti Banamu -->
+            <!-- QABDUULEE TO'ANNOO -->
+            <div class="btn-container">
+                <a id="openTabBtn" href="kitaaba1.pdf" target="_blank" class="btn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab Haaraatti Bani
+                </a>
+                <button class="btn" onclick="openFullscreen()">
+                    <i class="fa-solid fa-expand"></i> Full Screen
+                </button>
+            </div>
+
+            <!-- BAKKA KITAABNI (PDF) ITTI BANAMU -->
             <div class="pdf-box" id="pdfViewer">
-                <iframe id="pdfFrame" src="kitaaba.pdf#toolbar=1&navpanes=0"></iframe>
+                <iframe id="pdfFrame" src="kitaaba1.pdf#toolbar=1&navpanes=0"></iframe>
             </div>
         </div>
     </div>
 
     <script>
+        // Kitaaba Jijjiiruuf (JavaScript)
+        function changeBook() {
+            var selectedBook = document.getElementById("bookSelect").value;
+            
+            // Iframe irratti kitaaba filatame banuu
+            document.getElementById("pdfFrame").src = selectedBook + "#toolbar=1&navpanes=0";
+            
+            // Qabduu Tab haaraarratti banus amba geessituu (link) isaa jijjiiruu
+            document.getElementById("openTabBtn").href = selectedBook;
+        }
+
         // Fullscreen Function
         function openFullscreen() {
             var elem = document.getElementById("pdfViewer");
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
+            } else if (elem.webkitRequestFullscreen) {
                 elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
+            } else if (elem.msRequestFullscreen) {
                 elem.msRequestFullscreen();
             }
         }
