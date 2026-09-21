@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="om">
 <head>
     <meta charset="UTF-8">
@@ -105,33 +105,43 @@
             border: 1px solid #334155;
         }
 
-        /* SELECT DROPDOWN STYLING */
-        .select-box {
+        /* VERTICAL BOOK LIST BUTTONS */
+        .book-list-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             margin-bottom: 25px;
-            text-align: center;
         }
 
-        select {
-            width: 100%;
-            max-width: 650px;
+        .book-btn {
+            background: #0f172a;
+            color: #f8fafc;
+            border: 2px solid #334155;
             padding: 14px 20px;
-            font-size: 16px;
             border-radius: 12px;
-            border: 2px solid #38bdf8;
-            background-color: #0f172a;
-            color: #fff;
+            font-size: 16px;
             font-weight: 600;
-            outline: none;
             cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover, .book-btn.active {
+            border-color: #38bdf8;
+            background: #1e293b;
+            color: #38bdf8;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
         }
 
         /* CONTROL BUTTONS */
         .controls {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
         .btn-ctrl {
@@ -176,8 +186,6 @@
             width: 100%;
             height: 100%;
             border: none;
-            transform-origin: top center;
-            transition: transform 0.2s ease-in-out;
         }
 
         /* FOOTER STYLING */
@@ -220,32 +228,58 @@
         </header>
 
         <div class="container">
-            <!-- DROPDOWN SELECT (FAAYILOOTA GITHUB SUURAA IRRA JIRAN HUNDA) -->
-            <div class="select-box">
-                <select id="examSelect" onchange="changeExam()">
-                    <option value="2018 Biology online EUEE exam .pdf">2018 Biology online EUEE exam</option>
-                    <option value="2018 Chemistry EUEE Exam.pdf">2018 Chemistry EUEE Exam</option>
-                    <option value="2018 MATHEMATICS ONLINE EX....pdf">2018 MATHEMATICS ONLINE EXAM</option>
-                    <option value="2018 Online Mathematics exam....pdf">2018 Online Mathematics exam</option>
-                    <option value="2018 Online english exam (simul....pdf">2018 Online english exam</option>
-                    <option value="2018 Physics Online exam by (1)....pdf">2018 Physics Online exam</option>
-                    <option value="2018 SATOnline exam by.pdf">2018 SATOnline exam</option>
-                    <option value="Comprehensive Physics Revision....pdf">Comprehensive Physics Revision</option>
-                </select>
+            <!-- TARREE KITAABOTA GARAA GADII (VERTICAL LIST) -->
+            <div class="book-list-vertical">
+                <button class="book-btn active" onclick="loadPDF('2018 Biology online EUEE exam .pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Biology online EUEE exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 Chemistry EUEE Exam.pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Chemistry EUEE Exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 MATHEMATICS ONLINE EX....pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 MATHEMATICS ONLINE EXAM</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 Online Mathematics exam....pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Online Mathematics exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 Online english exam (simul....pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Online english exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 Physics Online exam by (1)....pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Physics Online exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('2018 SATOnline exam by.pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> 2018 SATOnline exam</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button class="book-btn" onclick="loadPDF('Comprehensive Physics Revision....pdf', this)">
+                    <span><i class="fa-solid fa-file-pdf"></i> Comprehensive Physics Revision</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
 
-            <!-- BUTTONS CONTROL -->
+            <!-- BUTTONS CONTROL (FULLSCREEN FI DOWNLOAD QOFA) -->
             <div class="controls">
-                <button class="btn-ctrl" onclick="zoomIn()"><i class="fa-solid fa-plus"></i> Zoom (+)</button>
-                <button class="btn-ctrl" onclick="zoomOut()"><i class="fa-solid fa-minus"></i> Minimize (-)</button>
-                <button class="btn-ctrl" onclick="resetZoom()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
                 <button class="btn-ctrl" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
                 <a id="downloadBtn" href="2018 Biology online EUEE exam .pdf" download class="btn-ctrl btn-download">
                     <i class="fa-solid fa-download"></i> Download PDF
                 </a>
             </div>
 
-            <!-- PDF VIEW BOX -->
+            <!-- PDF VIEW BOX (AUTOMATICALLY BANAMA) -->
             <div class="pdf-box" id="pdfViewer">
                 <iframe id="pdfFrame" src="2018 Biology online EUEE exam .pdf#toolbar=1"></iframe>
             </div>
@@ -261,54 +295,26 @@
     </footer>
 
     <script>
-        let currentScale = 1;
-
         // Gara Page 2 Ce'uuf
         function goToPage2() {
             document.getElementById("page1").style.display = "none";
             document.getElementById("page2").style.display = "block";
         }
 
-        // Exam/Kitaaba Jijjiiruuf
-        function changeExam() {
-            var selectedFile = document.getElementById("examSelect").value;
+        // Kitaaba Filatame Iframe irratti Banuu
+        function loadPDF(pdfFileName, btnElement) {
+            // Iframe PDF jijjiiruu
+            document.getElementById("pdfFrame").src = pdfFileName + "#toolbar=1";
             
-            // Iframe irratti jijjiiruu
-            document.getElementById("pdfFrame").src = selectedFile + "#toolbar=1";
-            
-            // Link Download sana jijjiiruu
-            var downloadLink = document.getElementById("downloadBtn");
-            downloadLink.href = selectedFile;
-            
-            // Zoom reset gochuu
-            resetZoom();
-        }
+            // Download Link jijjiiruu
+            document.getElementById("downloadBtn").href = pdfFileName;
 
-        // Zoom In
-        function zoomIn() {
-            currentScale += 0.15;
-            applyZoom();
-        }
-
-        // Zoom Out (Minimize)
-        function zoomOut() {
-            if (currentScale > 0.5) {
-                currentScale -= 0.15;
-                applyZoom();
-            }
-        }
-
-        // Reset Zoom
-        function resetZoom() {
-            currentScale = 1;
-            applyZoom();
-        }
-
-        function applyZoom() {
-            const iframe = document.getElementById('pdfFrame');
-            iframe.style.transform = `scale(${currentScale})`;
-            iframe.style.width = `${100 / currentScale}%`;
-            iframe.style.height = `${100 / currentScale}%`;
+            // Qabduu filatame saagganeessuu (Active CSS)
+            var buttons = document.querySelectorAll('.book-btn');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
         }
 
         // Full Screen
