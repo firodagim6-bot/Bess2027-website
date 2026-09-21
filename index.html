@@ -147,7 +147,7 @@
         .btn-ctrl {
             background: #334155;
             color: white;
-            padding: 10px 18px;
+            padding: 10px 20px;
             font-size: 14px;
             font-weight: 600;
             border: none;
@@ -172,10 +172,10 @@
             background: #059669;
         }
 
-        /* PDF VIEWER */
+        /* PDF VIEWER CONTAINER */
         .pdf-box {
             width: 100%;
-            height: 650px;
+            height: 700px;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #475569;
@@ -271,7 +271,7 @@
                 </button>
             </div>
 
-            <!-- BUTTONS CONTROL (FULLSCREEN FI DOWNLOAD QOFA) -->
+            <!-- BUTTON CONTROL (FULLSCREEN FI DOWNLOAD) -->
             <div class="controls">
                 <button class="btn-ctrl" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
                 <a id="downloadBtn" href="2018 Biology online EUEE exam .pdf" download class="btn-ctrl btn-download">
@@ -279,7 +279,7 @@
                 </a>
             </div>
 
-            <!-- PDF VIEW BOX (AUTOMATICALLY BANAMA) -->
+            <!-- PDF VIEW BOX -->
             <div class="pdf-box" id="pdfViewer">
                 <iframe id="pdfFrame" src="2018 Biology online EUEE exam .pdf#toolbar=1"></iframe>
             </div>
@@ -301,12 +301,12 @@
             document.getElementById("page2").style.display = "block";
         }
 
-        // Kitaaba Filatame Iframe irratti Banuu
+        // Kitaaba Filatame Webisaayitiidhumarratti Banuu
         function loadPDF(pdfFileName, btnElement) {
-            // Iframe PDF jijjiiruu
+            // PDF Iframe irratti banuu
             document.getElementById("pdfFrame").src = pdfFileName + "#toolbar=1";
-            
-            // Download Link jijjiiruu
+
+            // Qabduu Download sana PDF filatameef fe'uu
             document.getElementById("downloadBtn").href = pdfFileName;
 
             // Qabduu filatame saagganeessuu (Active CSS)
