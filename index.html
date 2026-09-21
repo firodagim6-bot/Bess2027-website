@@ -28,11 +28,20 @@
         header {
             background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
+        }
+
+        /* LOGO STYLING */
+        .header-logo {
+            width: 90px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         header h1 {
@@ -82,51 +91,49 @@
             margin-bottom: 25px;
         }
 
-        /* BUTTON CONTROLS STYLING */
-        .btn-controls {
-            margin-bottom: 20px;
+        /* BUTTON STYLING */
+        .btn-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
         .btn {
             background: linear-gradient(45deg, #4361ee, #4cc9f0);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 22px;
             font-size: 15px;
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
             transition: all 0.3s ease;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.6);
         }
 
-        /* PDF VIEWER STYLING */
-        .pdf-container {
-            position: relative;
+        /* PDF VIEWER CONTAINER */
+        .pdf-box {
             width: 100%;
-            height: 650px;
-            margin-top: 10px;
-            border-radius: 12px;
-            overflow: auto; /* Scroll akka uumaamuuf */
+            height: 600px;
+            border-radius: 15px;
             border: 2px solid #e0e1dd;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             background-color: #525659;
         }
 
-        .pdf-viewer {
+        iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -138,6 +145,8 @@
 <body>
 
     <header>
+        <!-- Logo fakkii kee IDDOO KANATTI KA'AME: -->
+        <img src="bess.jpg" alt="BESS Logo" class="header-logo">
         <h1>BESS2027</h1>
         <div class="subtitle">Official Student Portal</div>
     </header>
@@ -145,27 +154,19 @@
     <div class="container">
         <div class="hero-card">
             <h2>Kitaaba Dubbisaa</h2>
-            <p>Kitaaba guutuu asuma irratti guddisaa yookaan xiqqeessaa dubbisuu dandeessu.</p>
+            <p>Kitaaba guutuu asuma irratti guddisaa, xiqqeessaa yookaan Full Screen gochuun dubbisaa.</p>
 
-            <!-- Qabduulee Zoom in, Zoom out, Reset fi Fullscreen -->
-            <div class="btn-controls">
-                <button class="btn" onclick="zoomIn()">
-                    <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom (+)
-                </button>
-                <button class="btn" onclick="zoomOut()">
-                    <i class="fa-solid fa-magnifying-glass-minus"></i> Minimize (-)
-                </button>
-                <button class="btn" onclick="resetZoom()">
-                    <i class="fa-solid fa-rotate-left"></i> Reset
-                </button>
-                <button class="btn" onclick="openFullscreen()">
-                    <i class="fa-solid fa-expand"></i> Full Screen
-                </button>
+            <!-- Qabduulee To'annoo (Zoom & Fullscreen) -->
+            <div class="btn-container">
+                <button class="btn" onclick="zoomIn()"><i class="fa-solid fa-plus"></i> Zoom (+)</button>
+                <button class="btn" onclick="zoomOut()"><i class="fa-solid fa-minus"></i> Minimize (-)</button>
+                <button class="btn" onclick="resetZoom()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                <button class="btn" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
             </div>
 
-            <!-- Box PDF Viewer -->
-            <div class="pdf-container" id="pdfViewerContainer">
-                <iframe class="pdf-viewer" src="sample.pdf#toolbar=1" id="pdfFrame"></iframe>
+            <!-- Bakka Kitaabni (PDF) Itti Banamu -->
+            <div class="pdf-box" id="pdfViewer">
+                <iframe id="pdfFrame" src="kitaaba.pdf#toolbar=1"></iframe>
             </div>
         </div>
     </div>
@@ -193,7 +194,6 @@
             applyZoom();
         }
 
-        // Apply scale style to iframe
         function applyZoom() {
             const iframe = document.getElementById('pdfFrame');
             iframe.style.transform = `scale(${currentScale})`;
@@ -201,9 +201,9 @@
             iframe.style.height = `${100 / currentScale}%`;
         }
 
-        // Fullscreen Function
+        // Fullscreen
         function openFullscreen() {
-            var elem = document.getElementById("pdfViewerContainer");
+            var elem = document.getElementById("pdfViewer");
             if (elem.requestFullscreen) {
                 elem.requestFullscreen();
             } else if (elem.webkitRequestFullscreen) {
