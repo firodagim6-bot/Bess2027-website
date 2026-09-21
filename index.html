@@ -68,7 +68,6 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            transition: transform 0.3s ease;
         }
 
         .hero-card h2 {
@@ -83,230 +82,137 @@
             margin-bottom: 25px;
         }
 
-        /* BUTTON STYLING */
+        /* BUTTON CONTROLS STYLING */
+        .btn-controls {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .btn {
             background: linear-gradient(45deg, #4361ee, #4cc9f0);
             color: white;
-            padding: 14px 32px;
-            font-size: 16px;
+            padding: 10px 20px;
+            font-size: 15px;
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
             transition: all 0.3s ease;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
         }
 
-        .btn-download {
-            background: linear-gradient(45deg, #2ec4b6, #20bf55);
-            box-shadow: 0 4px 15px rgba(46, 196, 182, 0.4);
-        }
-
-        .btn-download:hover {
-            box-shadow: 0 8px 25px rgba(46, 196, 182, 0.6);
-        }
-
-        .btn-back {
-            background: #6c757d;
-            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
-            margin-top: 20px;
-        }
-
-        /* PAGE SWITCHING */
-        #page2 {
-            display: none;
-        }
-
-        /* EXAM CARDS */
-        .exam-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .exam-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
-
-        .exam-card:hover {
-            border-color: #4361ee;
-            box-shadow: 0 12px 30px rgba(67, 97, 238, 0.15);
-        }
-
-        .exam-card h3 {
-            color: #0d1b2a;
-            font-size: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* PDF VIEWER STYLING */
+        .pdf-container {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            margin-top: 10px;
+            border-radius: 12px;
+            overflow: auto; /* Scroll akka uumaamuuf */
+            border: 2px solid #e0e1dd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            background-color: #525659;
         }
 
         .pdf-viewer {
             width: 100%;
-            height: 500px;
+            height: 100%;
             border: none;
-            border-radius: 12px;
-            margin: 15px 0;
-            background-color: #f8f9fa;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0d1b2a;
-            color: #a3a8b7;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 6px 0;
-            font-size: 15px;
-        }
-
-        footer a {
-            color: #4cc9f0;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #4361ee;
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            header h1 { font-size: 38px; }
-            .subtitle { font-size: 14px; }
-            .pdf-viewer { height: 380px; }
+            transform-origin: top center;
+            transition: transform 0.2s ease-in-out;
         }
     </style>
 </head>
 <body>
 
-    <!-- FUULA 1FFAA (Home Page) -->
-    <div id="page1">
-        <header>
-            <h1><i class="fa-solid fa-graduation-cap"></i> BESS</h1>
-            <p class="subtitle">Betel Evangelica Secondary School</p>
-        </header>
+    <header>
+        <h1>BESS2027</h1>
+        <div class="subtitle">Official Student Portal</div>
+    </header>
 
-        <div class="container">
-            <div class="hero-card">
-                <h2>Welcome to BESS Official Portal</h2>
-                <p>Access high school national exams.</p>
-                <button class="btn" onclick="showNextPage()">
-                    Explore Exams <i class="fa-solid fa-arrow-right"></i>
+    <div class="container">
+        <div class="hero-card">
+            <h2>Kitaaba Dubbisaa</h2>
+            <p>Kitaaba guutuu asuma irratti guddisaa yookaan xiqqeessaa dubbisuu dandeessu.</p>
+
+            <!-- Qabduulee Zoom in, Zoom out, Reset fi Fullscreen -->
+            <div class="btn-controls">
+                <button class="btn" onclick="zoomIn()">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom (+)
+                </button>
+                <button class="btn" onclick="zoomOut()">
+                    <i class="fa-solid fa-magnifying-glass-minus"></i> Minimize (-)
+                </button>
+                <button class="btn" onclick="resetZoom()">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+                <button class="btn" onclick="openFullscreen()">
+                    <i class="fa-solid fa-expand"></i> Full Screen
                 </button>
             </div>
-        </div>
 
-        <footer>
-            <p>© 2027 BESS2027 | All Rights Reserved</p>
-        </footer>
-    </div>
-
-    <!-- FUULA 2FFAA (Exam Page) -->
-    <div id="page2">
-        <header>
-            <h1><i class="fa-solid fa-file-lines"></i> EXAM PORTAL</h1>
-            <p class="subtitle">Betel Evangelica Secondary School</p>
-        </header>
-
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h2>Natural Sciences Exam 2018 EC</h2>
-                <p style="color: #6c757d;">Read the exam papers online or download them to your device.</p>
-            </div>
-
-            <div class="exam-grid">
-
-                <!-- 1. CHEMISTRY -->
-                <div class="exam-card">
-                    <h3><i class="fa-solid fa-flask" style="color: #e63946;"></i> 2. Chemistry Online Exam</h3>
-                    <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/firodagim6-bot/Bess2027-website/main/2018%20Chemistry%20EUEE%20Exam.pdf&embedded=true"></iframe>
-                    <a href="2018 Chemistry EUEE Exam.pdf" download class="btn btn-download">
-                        <i class="fa-solid fa-download"></i> Download Chemistry PDF
-                    </a>
-                </div>
-
-                <!-- 2. PHYSICS -->
-                <div class="exam-card">
-                    <h3><i class="fa-solid fa-atom" style="color: #f72585;"></i> 3. Physics Online Exam</h3>
-                    <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/firodagim6-bot/Bess2027-website/main/2018%20Physics%20Online%20exam%20by%20(1).pdf&embedded=true"></iframe>
-                    <a href="2018 Physics Online exam by (1).pdf" download class="btn btn-download">
-                        <i class="fa-solid fa-download"></i> Download Physics PDF
-                    </a>
-                </div>
-
-                <!-- 3. MATHEMATICS -->
-                <div class="exam-card">
-                    <h3><i class="fa-solid fa-calculator" style="color: #7209b7;"></i> 4. Mathematics Online Exam</h3>
-                    <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/firodagim6-bot/Bess2027-website/main/2018%20Online%20Mathematics%20exam%20(simulated).pdf&embedded=true"></iframe>
-                    <a href="2018 Online Mathematics exam (simulated).pdf" download class="btn btn-download">
-                        <i class="fa-solid fa-download"></i> Download Maths PDF
-                    </a>
-                </div>
-
-                <!-- 4. SAT EXAM -->
-                <div class="exam-card">
-                    <h3><i class="fa-solid fa-brain" style="color: #4cc9f0;"></i> 5. SAT Online Exam</h3>
-                    <iframe class="pdf-viewer" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/firodagim6-bot/Bess2027-website/main/2018%20SATOnline%20exam%20by.pdf&embedded=true"></iframe>
-                    <a href="2018 SATOnline exam by.pdf" download class="btn btn-download">
-                        <i class="fa-solid fa-download"></i> Download SAT PDF
-                    </a>
-                </div>
-
-            </div>
-
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="btn btn-back" onclick="showPreviousPage()">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Home
-                </button>
+            <!-- Box PDF Viewer -->
+            <div class="pdf-container" id="pdfViewerContainer">
+                <iframe class="pdf-viewer" src="sample.pdf#toolbar=1" id="pdfFrame"></iframe>
             </div>
         </div>
-
-        <footer>
-            <p>© 2027 BESS2027 | All Rights Reserved</p>
-            <p>Created with <i class="fa-solid fa-heart" style="color: #e63946;"></i> by <strong>Efrem Dagim</strong></p>
-            <p>Contact Telegram: <a href="https://t.me/Efi108" target="_blank"><i class="fa-paper-plane fa-brands"></i> @Efi108</a></p>
-        </footer>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
-        function showNextPage() {
-            document.getElementById("page1").style.display = "none";
-            document.getElementById("page2").style.display = "block";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        let currentScale = 1;
+
+        // Zoom In (+)
+        function zoomIn() {
+            currentScale += 0.15;
+            applyZoom();
         }
 
-        function showPreviousPage() {
-            document.getElementById("page2").style.display = "none";
-            document.getElementById("page1").style.display = "block";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Zoom Out (-)
+        function zoomOut() {
+            if (currentScale > 0.5) {
+                currentScale -= 0.15;
+                applyZoom();
+            }
+        }
+
+        // Reset Zoom
+        function resetZoom() {
+            currentScale = 1;
+            applyZoom();
+        }
+
+        // Apply scale style to iframe
+        function applyZoom() {
+            const iframe = document.getElementById('pdfFrame');
+            iframe.style.transform = `scale(${currentScale})`;
+            iframe.style.width = `${100 / currentScale}%`;
+            iframe.style.height = `${100 / currentScale}%`;
+        }
+
+        // Fullscreen Function
+        function openFullscreen() {
+            var elem = document.getElementById("pdfViewerContainer");
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
         }
     </script>
 
 </body>
 </html>
- 
