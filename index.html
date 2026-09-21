@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BESS2027 - Official Portal</title>
+    <title>BESS - BETEL EVANGELICAL SECONDARY SCHOOL</title>
     <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -17,190 +17,300 @@
         }
 
         body {
-            background-color: #f4f7fe;
-            color: #2b2d42;
+            background-color: #0f172a;
+            color: #f8fafc;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* HEADER STYLING */
-        header {
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
-            color: white;
-            padding: 40px 20px;
+        /* PAGE 1: HERO / LANDING PAGE */
+        #page1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 85vh;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+            padding: 20px;
+            background: radial-gradient(circle, rgba(30,41,59,1) 0%, rgba(15,23,42,1) 100%);
+        }
+
+        .main-title {
+            font-size: 80px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            background: linear-gradient(45deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .sub-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn-next {
+            background: linear-gradient(45deg, #0284c7, #6366f1);
+            color: white;
+            padding: 16px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+        }
+
+        /* PAGE 2: EXAM PORTAL */
+        #page2 {
+            display: none;
+            padding: 30px 20px;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         header h1 {
-            font-size: 42px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #4cc9f0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-size: 32px;
+            color: #38bdf8;
+            margin-bottom: 8px;
         }
 
-        .subtitle {
-            font-size: 16px;
-            font-weight: 300;
-            margin-top: 8px;
-            letter-spacing: 2px;
-            color: #e0e1dd;
-            text-transform: uppercase;
-        }
-
-        /* MAIN CONTAINER */
         .container {
             max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        /* CARD STYLING */
-        .hero-card {
-            background: white;
-            padding: 30px 20px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .hero-card h2 {
-            font-size: 26px;
-            color: #1b263b;
-            margin-bottom: 10px;
-        }
-
-        .hero-card p {
-            color: #6c757d;
-            font-size: 15px;
-            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
         }
 
         /* SELECT DROPDOWN STYLING */
-        .book-select-container {
-            margin-bottom: 20px;
+        .select-box {
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        .book-select {
-            padding: 12px 20px;
+        select {
+            width: 100%;
+            max-width: 600px;
+            padding: 14px 20px;
             font-size: 16px;
-            border-radius: 50px;
-            border: 2px solid #4361ee;
-            outline: none;
-            background-color: #fff;
-            color: #1b263b;
+            border-radius: 12px;
+            border: 2px solid #38bdf8;
+            background-color: #0f172a;
+            color: #fff;
             font-weight: 600;
+            outline: none;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* BUTTON STYLING */
-        .btn-container {
+        /* CONTROL BUTTONS */
+        .controls {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            background: linear-gradient(45deg, #4361ee, #4cc9f0);
+        .btn-ctrl {
+            background: #334155;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             font-size: 14px;
             font-weight: 600;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             cursor: pointer;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            text-decoration: none;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
+        .btn-ctrl:hover {
+            background: #475569;
         }
 
-        /* PDF VIEWER CONTAINER */
+        .btn-download {
+            background: #10b981;
+        }
+
+        .btn-download:hover {
+            background: #059669;
+        }
+
+        /* PDF VIEWER */
         .pdf-box {
             width: 100%;
             height: 650px;
-            border-radius: 15px;
-            border: 2px solid #e0e1dd;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #475569;
             background-color: #525659;
-            position: relative;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            transform-origin: top center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* FOOTER STYLING */
+        footer {
+            background: #090d16;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            border-top: 1px solid #1e293b;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>BESS2027</h1>
-        <div class="subtitle">Official Student Portal</div>
-    </header>
+    <!-- PAGE 1 -->
+    <div id="page1">
+        <h1 class="main-title">BESS</h1>
+        <div class="sub-title">BETEL EVANGELICAL SECONDARY SCHOOL</div>
+        <button class="btn-next" onclick="goToPage2()">
+            NEXT <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
 
-    <div class="container">
-        <div class="hero-card">
-            <h2>Kitaaba Dubbisaa</h2>
-            <p>Kitaaba dubbisuu barbaaddu filachuun asuma irratti dubbisi.</p>
+    <!-- PAGE 2 -->
+    <div id="page2">
+        <header>
+            <h1>qormaata 2018 EC online exam pdf</h1>
+        </header>
 
-            <!-- FILANNOO KITAABOTA GARAA GARAA -->
-            <div class="book-select-container">
-                <select id="bookSelect" class="book-select" onchange="changeBook()">
-                    <option value="kitaaba1.pdf">Kitaaba 1ffa (Fakkeenyaaf: Hisaaba)</option>
-                    <option value="kitaaba2.pdf">Kitaaba 2ffa (Fakkeenyaaf: Saayinsii)</option>
-                    <option value="kitaaba3.pdf">Kitaaba 3ffa (Fakkeenyaaf: Afaan Oromoo)</option>
+        <div class="container">
+            <!-- DROPDOWN SELECT (BIOLOGY MALEES KANNNEN BIROO HUNDA) -->
+            <div class="select-box">
+                <select id="examSelect" onchange="changeExam()">
+                    <option value="2018 Chemistry EUEE Exam.pdf">2018 Chemistry EUEE Exam</option>
+                    <option value="2018 MATHEMATICS ONLINE EX....pdf">2018 MATHEMATICS ONLINE EXAM</option>
+                    <option value="2018 Online Mathematics exam....pdf">2018 Online Mathematics exam</option>
+                    <option value="2018 Online english exam (simul....pdf">2018 Online english exam</option>
+                    <option value="2018 Physics Online exam by (1)....pdf">2018 Physics Online exam</option>
+                    <option value="2018 SATOnline exam by.pdf">2018 SATOnline exam</option>
+                    <option value="Comprehensive Physics Revision....pdf">Comprehensive Physics Revision</option>
                 </select>
             </div>
 
-            <!-- QABDUULEE TO'ANNOO -->
-            <div class="btn-container">
-                <a id="openTabBtn" href="kitaaba1.pdf" target="_blank" class="btn">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Tab Haaraatti Bani
+            <!-- BUTTONS CONTROL -->
+            <div class="controls">
+                <button class="btn-ctrl" onclick="zoomIn()"><i class="fa-solid fa-plus"></i> Zoom (+)</button>
+                <button class="btn-ctrl" onclick="zoomOut()"><i class="fa-solid fa-minus"></i> Minimize (-)</button>
+                <button class="btn-ctrl" onclick="resetZoom()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                <button class="btn-ctrl" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
+                <a id="downloadBtn" href="2018 Chemistry EUEE Exam.pdf" download class="btn-ctrl btn-download">
+                    <i class="fa-solid fa-download"></i> Download PDF
                 </a>
-                <button class="btn" onclick="openFullscreen()">
-                    <i class="fa-solid fa-expand"></i> Full Screen
-                </button>
             </div>
 
-            <!-- BAKKA KITAABNI (PDF) ITTI BANAMU -->
+            <!-- PDF VIEW BOX -->
             <div class="pdf-box" id="pdfViewer">
-                <iframe id="pdfFrame" src="kitaaba1.pdf#toolbar=1&navpanes=0"></iframe>
+                <iframe id="pdfFrame" src="2018 Chemistry EUEE Exam.pdf#toolbar=1"></iframe>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
+    <footer>
+        <p>created by Efrem dagim 2019</p>
+        <p style="margin-top: 5px;">
+            Telegram: <a href="https://t.me/EFI108" target="_blank">@EFI108</a>
+        </p>
+    </footer>
+
     <script>
-        // Kitaaba Jijjiiruuf (JavaScript)
-        function changeBook() {
-            var selectedBook = document.getElementById("bookSelect").value;
-            
-            // Iframe irratti kitaaba filatame banuu
-            document.getElementById("pdfFrame").src = selectedBook + "#toolbar=1&navpanes=0";
-            
-            // Qabduu Tab haaraarratti banus amba geessituu (link) isaa jijjiiruu
-            document.getElementById("openTabBtn").href = selectedBook;
+        let currentScale = 1;
+
+        // Gara Page 2 Ce'uuf
+        function goToPage2() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
         }
 
-        // Fullscreen Function
+        // Exam/Kitaaba Jijjiiruuf
+        function changeExam() {
+            var selectedFile = document.getElementById("examSelect").value;
+            
+            // Iframe irratti jijjiiruu
+            document.getElementById("pdfFrame").src = selectedFile + "#toolbar=1";
+            
+            // Link Download sana jijjiiruu
+            var downloadLink = document.getElementById("downloadBtn");
+            downloadLink.href = selectedFile;
+            
+            // Zoom reset gochuu
+            resetZoom();
+        }
+
+        // Zoom In
+        function zoomIn() {
+            currentScale += 0.15;
+            applyZoom();
+        }
+
+        // Zoom Out (Minimize)
+        function zoomOut() {
+            if (currentScale > 0.5) {
+                currentScale -= 0.15;
+                applyZoom();
+            }
+        }
+
+        // Reset Zoom
+        function resetZoom() {
+            currentScale = 1;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const iframe = document.getElementById('pdfFrame');
+            iframe.style.transform = `scale(${currentScale})`;
+            iframe.style.width = `${100 / currentScale}%`;
+            iframe.style.height = `${100 / currentScale}%`;
+        }
+
+        // Full Screen
         function openFullscreen() {
             var elem = document.getElementById("pdfViewer");
             if (elem.requestFullscreen) {
