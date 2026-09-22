@@ -121,6 +121,8 @@
             align-items: center;
             justify-content: space-between;
             transition: all 0.2s ease;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .exam-item:hover {
@@ -150,10 +152,13 @@
             color: #64748b;
         }
 
-        .btn-open {
-            background: #0284c7;
-            color: white;
-            padding: 8px 18px;
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-open, .btn-download {
+            padding: 8px 16px;
             border-radius: 8px;
             text-decoration: none;
             font-size: 14px;
@@ -161,11 +166,27 @@
             transition: background 0.2s;
             cursor: pointer;
             border: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-open {
+            background: #0284c7;
+            color: white;
         }
 
         .btn-open:hover {
             background: #0369a1;
+        }
+
+        .btn-download {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #059669;
         }
     </style>
 </head>
@@ -198,7 +219,10 @@
                             <span>7.25 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('Https://drive.google.com/file/d/1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -209,7 +233,10 @@
                             <span>460 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -220,7 +247,10 @@
                             <span>7.54 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -231,7 +261,10 @@
                             <span>5.81 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1JCGdviA82r0f3sGL1j65b120uaajVGFC/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -242,7 +275,10 @@
                             <span>651 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1JCGdviA82r0f3sGL1j65b120uaajVGFC/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -253,7 +289,10 @@
                             <span>513 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -264,7 +303,10 @@
                             <span>754 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
                 <div class="exam-item">
@@ -275,7 +317,10 @@
                             <span>370 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <button class="btn-open" onclick="openPdf('https://drive.google.com/file/d/12xGyAJhowqZ907aT0bnxc2BN40hVhomB/view?usp=drivesdk')">Open</button>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('12xGyAJhowqZ907aT0bnxc2BN40hVhomB')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('12xGyAJhowqZ907aT0bnxc2BN40hVhomB')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
                 </div>
 
             </div>
@@ -288,7 +333,15 @@
             document.getElementById('page2').style.display = 'block';
         }
 
-        function openPdf(url) {
+        // Browser/Chrome irratti banuuf
+        function openPdf(fileId) {
+            var url = 'https://drive.google.com/file/d/' + fileId + '/preview';
+            window.open(url, '_blank');
+        }
+
+        // Kallattiin faayilaicha buusuuf (Direct Download)
+        function downloadPdf(fileId) {
+            var url = 'https://drive.google.com/uc?export=download&id=' + fileId;
             window.open(url, '_blank');
         }
     </script>
