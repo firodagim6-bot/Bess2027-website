@@ -188,6 +188,33 @@
         .btn-download:hover {
             background: #059669;
         }
+
+        /* FOOTER STYLES */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .telegram-link {
+            color: #24A1DE;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .telegram-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -211,6 +238,22 @@
         <div class="container">
             <div class="exam-list">
                 
+                <!-- 1. English Exam -->
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Online english exam (simulated ).pdf</h3>
+                            <span>370 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-open" onclick="openPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-eye"></i> Open</button>
+                        <button class="btn-download" onclick="downloadPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-download"></i> Download</button>
+                    </div>
+                </div>
+
+                <!-- 2. Mathematics Exam (Simulated 1) -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
@@ -220,25 +263,12 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
-
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 Online Mathematics exam (simulated).pdf</h3>
-                            <span>460 kB • 4 days ago</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
                         <button class="btn-open" onclick="openPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-eye"></i> Open</button>
                         <button class="btn-download" onclick="downloadPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-download"></i> Download</button>
                     </div>
                 </div>
 
+                <!-- 3. Physics Exam -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
@@ -253,6 +283,7 @@
                     </div>
                 </div>
 
+                <!-- 4. SAT Exam -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
@@ -267,20 +298,7 @@
                     </div>
                 </div>
 
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>Comprehensive Physics Revision 12.pdf</h3>
-                            <span>651 kB • 4 days ago</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1JCGdviA82r0f3sGL1j65b120uaajVGFC')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
-
+                <!-- 5. Chemistry Exam -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
@@ -295,6 +313,7 @@
                     </div>
                 </div>
 
+                <!-- 6. Biology Exam -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
@@ -309,12 +328,13 @@
                     </div>
                 </div>
 
+                <!-- 7. Online Mathematics (Simulated) -->
                 <div class="exam-item">
                     <div class="exam-info">
                         <i class="fa-solid fa-file-pdf exam-icon"></i>
                         <div class="exam-details">
-                            <h3>2018 Online english exam (simulated ).pdf</h3>
-                            <span>370 kB • 4 days ago</span>
+                            <h3>2018 Online Mathematics exam (simulated).pdf</h3>
+                            <span>460 kB • 4 days ago</span>
                         </div>
                     </div>
                     <div class="btn-group">
@@ -324,6 +344,12 @@
                 </div>
 
             </div>
+
+            <!-- FOOTER SECTION -->
+            <footer>
+                <p>Telegram: <a href="https://t.me/Efi108" target="_blank" class="telegram-link"><i class="fa-brands fa-telegram"></i> @Efi108</a></p>
+                <p>Created by EFREM DAGIM grade 12 Bess 2019</p>
+            </footer>
         </div>
     </div>
 
@@ -333,13 +359,11 @@
             document.getElementById('page2').style.display = 'block';
         }
 
-        // Browser/Chrome irratti banuuf
         function openPdf(fileId) {
             var url = 'https://drive.google.com/file/d/' + fileId + '/preview';
             window.open(url, '_blank');
         }
 
-        // Kallattiin faayilaicha buusuuf (Direct Download)
         function downloadPdf(fileId) {
             var url = 'https://drive.google.com/uc?export=download&id=' + fileId;
             window.open(url, '_blank');
