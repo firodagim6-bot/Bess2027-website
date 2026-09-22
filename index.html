@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="om">
 <head>
     <meta charset="UTF-8">
@@ -105,230 +105,187 @@
             border: 1px solid #334155;
         }
 
-        /* VERTICAL BOOK LIST BUTTONS */
-        .book-list-vertical {
+        /* EXAM LIST STYLES */
+        .exam-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .book-btn {
+        .exam-item {
             background: #0f172a;
-            color: #f8fafc;
-            border: 2px solid #334155;
-            padding: 14px 20px;
+            border: 1px solid #334155;
+            padding: 15px 20px;
             border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: left;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .book-btn:hover, .book-btn.active {
-            border-color: #38bdf8;
-            background: #1e293b;
-            color: #38bdf8;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
-        }
-
-        /* CONTROL BUTTONS */
-        .controls {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .btn-ctrl {
-            background: #334155;
-            color: white;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             transition: all 0.2s ease;
-            text-decoration: none;
         }
 
-        .btn-ctrl:hover {
-            background: #475569;
+        .exam-item:hover {
+            border-color: #38bdf8;
+            transform: translateX(5px);
         }
 
-        .btn-download {
-            background: #10b981;
+        .exam-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .btn-download:hover {
-            background: #059669;
-        }
-
-        /* PDF VIEWER CONTAINER */
-        .pdf-box {
-            width: 100%;
-            height: 700px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #475569;
-            background-color: #525659;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* FOOTER STYLING */
-        footer {
-            background: #090d16;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            border-top: 1px solid #1e293b;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        footer a {
+        .exam-icon {
+            font-size: 24px;
             color: #38bdf8;
-            text-decoration: none;
-            font-weight: 600;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .exam-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        .exam-details span {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .btn-open {
+            background: #0284c7;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-open:hover {
+            background: #0369a1;
         }
     </style>
 </head>
 <body>
 
-    <!-- PAGE 1 -->
+    <!-- PAGE 1: HERO PAGE -->
     <div id="page1">
         <h1 class="main-title">BESS</h1>
-        <div class="sub-title">BETEL EVANGELICAL SECONDARY SCHOOL</div>
-        <button class="btn-next" onclick="goToPage2()">
-            NEXT <i class="fa-solid fa-arrow-right"></i>
+        <p class="sub-title">BETEL EVANGELICAL SECONDARY SCHOOL EXAM PORTAL</p>
+        <button class="btn-next" onclick="goToExamPortal()">
+            Enter Exam Portal <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>
 
-    <!-- PAGE 2 -->
+    <!-- PAGE 2: EXAM PORTAL -->
     <div id="page2">
         <header>
-            <h1>qormaata 2018 EC online exam pdf</h1>
+            <h1><i class="fa-solid fa-graduation-cap"></i> Exam & Revision Materials</h1>
+            <p style="color: #94a3b8;">Select a document to view or download</p>
         </header>
 
         <div class="container">
-            <!-- TARREE KITAABOTA GARAA GADII (VERTICAL LIST) -->
-            <div class="book-list-vertical">
-                <button class="book-btn active" onclick="loadPDF('2018 Biology online EUEE exam .pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Biology online EUEE exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+            <div class="exam-list">
+                
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 MATHEMATICS ONLINE EXAM SIMULATED (1).pdf</h3>
+                            <span>7.25 MB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 Chemistry EUEE Exam.pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Chemistry EUEE Exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Online Mathematics exam (simulated).pdf</h3>
+                            <span>460 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 MATHEMATICS ONLINE EX....pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 MATHEMATICS ONLINE EXAM</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Physics Online exam by (1).pdf</h3>
+                            <span>7.54 MB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 Online Mathematics exam....pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Online Mathematics exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 SATOnline exam by.pdf</h3>
+                            <span>5.81 MB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 Online english exam (simul....pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Online english exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>Comprehensive Physics Revision 12.pdf</h3>
+                            <span>651 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 Physics Online exam by (1)....pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 Physics Online exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Chemistry EUEE Exam.pdf</h3>
+                            <span>513 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('2018 SATOnline exam by.pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> 2018 SATOnline exam</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Biology online EUEE exam p1.pdf</h3>
+                            <span>754 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-                <button class="book-btn" onclick="loadPDF('Comprehensive Physics Revision....pdf', this)">
-                    <span><i class="fa-solid fa-file-pdf"></i> Comprehensive Physics Revision</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
+                <div class="exam-item">
+                    <div class="exam-info">
+                        <i class="fa-solid fa-file-pdf exam-icon"></i>
+                        <div class="exam-details">
+                            <h3>2018 Online english exam (simulated ).pdf</h3>
+                            <span>370 kB • 4 days ago</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-open">Open</a>
+                </div>
 
-            <!-- BUTTON CONTROL (FULLSCREEN FI DOWNLOAD) -->
-            <div class="controls">
-                <button class="btn-ctrl" onclick="openFullscreen()"><i class="fa-solid fa-expand"></i> Full Screen</button>
-                <a id="downloadBtn" href="2018 Biology online EUEE exam .pdf" download class="btn-ctrl btn-download">
-                    <i class="fa-solid fa-download"></i> Download PDF
-                </a>
-            </div>
-
-            <!-- PDF VIEW BOX -->
-            <div class="pdf-box" id="pdfViewer">
-                <iframe id="pdfFrame" src="2018 Biology online EUEE exam .pdf#toolbar=1"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>created by Efrem dagim 2019</p>
-        <p style="margin-top: 5px;">
-            Telegram: <a href="https://t.me/EFI108" target="_blank">@EFI108</a>
-        </p>
-    </footer>
-
+    <!-- JAVASCRIPT FOR PAGE SWITCHING -->
     <script>
-        // Gara Page 2 Ce'uuf
-        function goToPage2() {
-            document.getElementById("page1").style.display = "none";
-            document.getElementById("page2").style.display = "block";
-        }
-
-        // Kitaaba Filatame Webisaayitiidhumarratti Banuu
-        function loadPDF(pdfFileName, btnElement) {
-            // PDF Iframe irratti banuu
-            document.getElementById("pdfFrame").src = pdfFileName + "#toolbar=1";
-
-            // Qabduu Download sana PDF filatameef fe'uu
-            document.getElementById("downloadBtn").href = pdfFileName;
-
-            // Qabduu filatame saagganeessuu (Active CSS)
-            var buttons = document.querySelectorAll('.book-btn');
-            buttons.forEach(function(btn) {
-                btn.classList.remove('active');
-            });
-            btnElement.classList.add('active');
-        }
-
-        // Full Screen
-        function openFullscreen() {
-            var elem = document.getElementById("pdfViewer");
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            }
+        function goToExamPortal() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
         }
     </script>
-
 </body>
 </html>
