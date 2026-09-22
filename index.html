@@ -105,7 +105,6 @@
             border: 1px solid #334155;
         }
 
-        /* EXAM LIST STYLES */
         .exam-list {
             display: flex;
             flex-direction: column;
@@ -160,6 +159,9 @@
             font-size: 14px;
             font-weight: 600;
             transition: background 0.2s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
         }
 
         .btn-open:hover {
@@ -196,7 +198,8 @@
                             <span>7.25 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <!-- Bakka 'files/maths1.pdf' jedhu irratti linkii PDF keessani kaasaa -->
+                    <button class="btn-open" onclick="openPdf('files/maths1.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -207,7 +210,7 @@
                             <span>460 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/maths2.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -218,7 +221,7 @@
                             <span>7.54 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/physics1.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -229,7 +232,7 @@
                             <span>5.81 MB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/sat.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -240,7 +243,7 @@
                             <span>651 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/physics_rev.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -251,7 +254,7 @@
                             <span>513 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/chemistry.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -262,7 +265,7 @@
                             <span>754 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/biology.pdf')">Open</button>
                 </div>
 
                 <div class="exam-item">
@@ -273,18 +276,26 @@
                             <span>370 kB • 4 days ago</span>
                         </div>
                     </div>
-                    <a href="#" class="btn-open">Open</a>
+                    <button class="btn-open" onclick="openPdf('files/english.pdf')">Open</button>
                 </div>
 
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR PAGE SWITCHING -->
     <script>
         function goToExamPortal() {
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
+        }
+
+        function openPdf(url) {
+            if (url && url !== '') {
+                // Window haaraa irratti faayila saaqqachuuf
+                window.open(url, '_blank');
+            } else {
+                alert("Linkii faayilii kanaa hin arganne!");
+            }
         }
     </script>
 </body>
