@@ -189,6 +189,50 @@
             background: #059669;
         }
 
+        /* PDF MODAL (WEBSAAYITII KEESSATTI DUBBISUUF) */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #1e293b;
+            color: #fff;
+        }
+
+        .close-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .pdf-modal-body {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pdf-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* FOOTER STYLES */
         footer {
             margin-top: 40px;
@@ -353,22 +397,45 @@
         </div>
     </div>
 
+    <!-- MODAL POPUP FOR PDF VIEWING -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-modal-header">
+            <span>Kitaaba Dubbisaa Jirtu...</span>
+            <button class="close-btn" onclick="closePdf()">X Cufi</button>
+        </div>
+        <div class="pdf-modal-body">
+            <iframe id="pdfFrame" src=""></iframe>
+        </div>
+    </div>
+
     <script>
         function goToExamPortal() {
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
         }
 
-        // Kitaaba sana brawuzerii irratti kallattiin banuuf
+        // Websaayitiidhuma keessatti PDF sana banuuf Modal/Iframe fayyadamna
         function openPdf(fileId) {
-            var url = 'https://drive.google.com/file/d/' + fileId + '/preview';
-            window.open(url, '_blank');
+            var modal = document.getElementById('pdfModal');
+            var iframe = document.getElementById('pdfFrame');
+            
+            iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+            modal.style.display = 'flex';
         }
 
-        // Kitaaba sana kallattiin buufachuuf (Download)
+        // Viewer cufuuf
+        function closePdf() {
+            var modal = document.getElementById('pdfModal');
+            var iframe = document.getElementById('pdfFrame');
+            
+            modal.style.display = 'none';
+            iframe.src = '';
+        }
+
+        // Direct Download gochuuf
         function downloadPdf(fileId) {
             var url = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            window.open(url, '_blank');
+            window.location.href = url;
         }
     </script>
 </body>
