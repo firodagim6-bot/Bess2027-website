@@ -3,373 +3,1758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BESS - BETEL EVANGELICAL SECONDARY SCHOOL</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#07111f">
+
+    <title>BESS • Exam Portal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+
+        :root {
+            --bg: #07111f;
+            --bg2: #0b1728;
+            --card: rgba(15, 29, 48, 0.82);
+            --card2: rgba(12, 25, 42, 0.94);
+            --line: rgba(148, 163, 184, 0.14);
+            --text: #f8fafc;
+            --muted: #91a3b8;
+            --blue: #22b8ff;
+            --blue2: #4f46e5;
+            --green: #20d39a;
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 15% 0%,
+                    rgba(34, 184, 255, 0.12),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(79, 70, 229, 0.14),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    var(--bg),
+                    var(--bg2)
+                );
+
+            font-family: Inter, system-ui, sans-serif;
         }
 
-        /* PAGE 1: HERO / LANDING PAGE */
+        button {
+            font: inherit;
+        }
+
+        button:focus-visible {
+            outline: 3px solid rgba(34, 184, 255, 0.5);
+            outline-offset: 3px;
+        }
+
+
+        /* =========================================
+           PAGE 1
+        ========================================== */
+
         #page1 {
+            min-height: 100vh;
+
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            min-height: 85vh;
+
             text-align: center;
-            padding: 20px;
-            background: radial-gradient(circle, rgba(30,41,59,1) 0%, rgba(15,23,42,1) 100%);
+
+            padding: 28px 18px;
+
+            position: relative;
+            overflow: hidden;
         }
 
-        .main-title {
-            font-size: 80px;
-            font-weight: 800;
-            letter-spacing: 6px;
-            background: linear-gradient(45deg, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            text-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+        .glow {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(50px);
+
+            pointer-events: none;
         }
 
-        .sub-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #94a3b8;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            max-width: 600px;
+        .glow.one {
+            width: 240px;
+            height: 240px;
+
+            background: rgba(34, 184, 255, 0.13);
+
+            top: 8%;
+            left: 5%;
         }
 
-        .btn-next {
-            background: linear-gradient(45deg, #0284c7, #6366f1);
+        .glow.two {
+            width: 280px;
+            height: 280px;
+
+            background: rgba(79, 70, 229, 0.12);
+
+            right: 3%;
+            bottom: 5%;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+
+            max-width: 850px;
+        }
+
+        .logo {
+            width: 92px;
+            height: 92px;
+
+            margin: 0 auto 22px;
+
+            border-radius: 28px;
+
+            display: grid;
+            place-items: center;
+
+            font-size: 40px;
+
             color: white;
-            padding: 16px 45px;
-            font-size: 18px;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0797d8,
+                    #5148e8
+                );
+
+            box-shadow:
+                0 18px 50px rgba(34, 184, 255, 0.20);
+        }
+
+        .badge {
             display: inline-flex;
+
             align-items: center;
+            gap: 8px;
+
+            padding: 8px 13px;
+
+            border:
+                1px solid
+                rgba(34, 184, 255, 0.22);
+
+            border-radius: 999px;
+
+            color: #bcecff;
+
+            background:
+                rgba(34, 184, 255, 0.07);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.8px;
+
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: Poppins, sans-serif;
+
+            font-size:
+                clamp(
+                    58px,
+                    13vw,
+                    110px
+                );
+
+            line-height: 0.95;
+
+            letter-spacing: 8px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #65d9ff,
+                    #4f8cff,
+                    #9c7cff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size:
+                clamp(
+                    15px,
+                    2.5vw,
+                    21px
+                );
+
+            margin-top: 17px;
+
+            color: #dbeafe;
+
+            letter-spacing: 1.8px;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin:
+                14px auto 30px;
+
+            color: var(--muted);
+
+            line-height: 1.7;
+        }
+
+        .enter {
+            border: 0;
+
+            border-radius: 16px;
+
+            padding: 15px 24px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #078bd0,
+                    #4f46e5
+                );
+
+            box-shadow:
+                0 15px 35px
+                rgba(79, 70, 229, 0.28);
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+
+            display: inline-flex;
+
+            gap: 10px;
+
+            align-items: center;
+        }
+
+        .enter:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(79, 70, 229, 0.40);
+        }
+
+
+        /* =========================================
+           PAGE 2
+        ========================================== */
+
+        #page2 {
+            display: none;
+
+            min-height: 100vh;
+
+            padding:
+                24px
+                15px
+                45px;
+        }
+
+        .topbar {
+            max-width: 1050px;
+
+            margin:
+                0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
             gap: 12px;
         }
 
-        .btn-next:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+        .brand {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
         }
 
-        /* PAGE 2: EXAM PORTAL */
-        #page2 {
-            display: none;
-            padding: 30px 20px;
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 14px;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #078dd1,
+                    #5148e8
+                );
+        }
+
+        .brand strong {
+            font-family: Poppins, sans-serif;
+
+            font-size: 18px;
+        }
+
+        .brand small {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin-top: 2px;
+        }
+
+        .back {
+            border:
+                1px solid
+                var(--line);
+
+            background:
+                rgba(255,255,255,0.04);
+
+            color: #dbeafe;
+
+            padding: 9px 13px;
+
+            border-radius: 11px;
+
+            cursor: pointer;
+        }
+
+        .heading {
+            max-width: 1050px;
+
+            margin:
+                0 auto 20px;
+        }
+
+        .heading h2 {
+            font-family: Poppins, sans-serif;
+
+            font-size:
+                clamp(
+                    24px,
+                    5vw,
+                    34px
+                );
+        }
+
+        .heading p {
+            color: var(--muted);
+
+            margin-top: 5px;
+
+            font-size: 13px;
+        }
+
+        .panel {
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 18px;
+
+            border:
+                1px solid
+                var(--line);
+
+            background:
+                rgba(10, 22, 38, 0.66);
+
+            backdrop-filter: blur(18px);
+
+            border-radius: 24px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .search-wrap {
+            position: relative;
+        }
+
+        .search {
+            width: 100%;
+
+            border:
+                1px solid
+                var(--line);
+
+            background:
+                rgba(255,255,255,0.035);
+
+            color: white;
+
+            padding:
+                13px
+                15px
+                13px
+                42px;
+
+            border-radius: 13px;
+
+            outline: none;
+
+            margin-bottom: 14px;
+        }
+
+        .search:focus {
+            border-color:
+                rgba(34,184,255,0.5);
+        }
+
+        .search-wrap i {
+            position: absolute;
+
+            left: 15px;
+            top: 14px;
+
+            color: #6f8299;
+        }
+
+        .list {
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .exam {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 16px;
+
+            border:
+                1px solid
+                var(--line);
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18,35,56,0.88),
+                    rgba(10,23,39,0.92)
+                );
+
+            transition: 0.22s;
+        }
+
+        .exam:hover {
+            transform: translateY(-2px);
+
+            border-color:
+                rgba(34,184,255,0.38);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.18);
+        }
+
+        .pdf-icon {
+            width: 48px;
+            height: 48px;
+
+            flex:
+                0 0 48px;
+
+            border-radius: 14px;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+                rgba(239,68,68,0.10);
+
+            color: #ff6b6b;
+
+            font-size: 22px;
+        }
+
+        .info {
+            min-width: 0;
+
             flex: 1;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
+        .info h3 {
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            font-weight: 700;
+
+            overflow-wrap: anywhere;
         }
 
-        header h1 {
-            font-size: 32px;
-            color: #38bdf8;
-            margin-bottom: 8px;
+        .info span {
+            font-size: 11px;
+
+            color: #71839a;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid #334155;
-        }
-
-        .exam-list {
+        .actions {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
 
-        .exam-item {
-            background: #0f172a;
-            border: 1px solid #334155;
-            padding: 15px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s ease;
+            gap: 8px;
+
             flex-wrap: wrap;
-            gap: 10px;
+
+            justify-content: flex-end;
         }
 
-        .exam-item:hover {
-            border-color: #38bdf8;
-            transform: translateX(5px);
-        }
+        .open,
+        .download {
+            border-radius: 11px;
 
-        .exam-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+            padding:
+                10px
+                14px;
 
-        .exam-icon {
-            font-size: 24px;
-            color: #38bdf8;
-        }
-
-        .exam-details h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #f8fafc;
-        }
-
-        .exam-details span {
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-open, .btn-download {
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.2s;
             cursor: pointer;
-            border: none;
-            display: inline-flex;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            display: flex;
+
             align-items: center;
-            gap: 6px;
+
+            gap: 7px;
+
+            transition: 0.2s;
         }
 
-        .btn-open {
-            background: #0284c7;
+        .open {
+            border: 0;
+
             color: white;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #078ed3,
+                    #3d62e8
+                );
         }
 
-        .btn-open:hover {
-            background: #0369a1;
+        .open:hover {
+            filter: brightness(1.08);
         }
 
-        .btn-download {
-            background: #10b981;
-            color: white;
+        .download {
+            border:
+                1px solid
+                rgba(34,184,255,0.25);
+
+            color: #bcecff;
+
+            background:
+                rgba(34,184,255,0.08);
         }
 
-        .btn-download:hover {
-            background: #059669;
+        .download:hover {
+            background:
+                rgba(34,184,255,0.16);
+
+            border-color:
+                rgba(34,184,255,0.45);
+
+            transform: translateY(-1px);
         }
 
-        /* FOOTER STYLES */
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #334155;
+        .empty {
+            display: none;
+
             text-align: center;
-            color: #94a3b8;
-            font-size: 14px;
+
+            color: var(--muted);
+
+            padding: 35px;
         }
 
-        footer p {
-            margin: 5px 0;
+
+        /* =========================================
+           PDF VIEWER
+        ========================================== */
+
+        .viewer {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: none;
+
+            flex-direction: column;
+
+            background: #020812;
         }
 
-        .telegram-link {
-            color: #24A1DE;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+        .viewer-bar {
+            min-height: 62px;
+
+            padding:
+                10px
+                14px;
+
+            display: flex;
+
             align-items: center;
-            gap: 6px;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            background:
+                rgba(9,20,34,0.98);
+
+            border-bottom:
+                1px solid
+                var(--line);
         }
 
-        .telegram-link:hover {
-            text-decoration: underline;
+        .viewer-title {
+            min-width: 0;
         }
+
+        .viewer-title strong {
+            display: block;
+
+            font-size: 13px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .viewer-title small {
+            color: #71839a;
+
+            font-size: 10px;
+        }
+
+        .close {
+            flex:
+                0 0 auto;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: #ef4444;
+
+            color: white;
+
+            padding:
+                9px
+                13px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .frame-wrap {
+            flex: 1;
+
+            min-height: 0;
+
+            position: relative;
+        }
+
+        .frame-wrap iframe {
+            width: 100%;
+
+            height: 100%;
+
+            border: 0;
+
+            background: white;
+        }
+
+        .loading {
+            position: absolute;
+
+            inset: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            pointer-events: none;
+
+            background: white;
+
+            color: #334155;
+
+            font-size: 13px;
+        }
+
+        .loading span {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+        .spin {
+            width: 18px;
+
+            height: 18px;
+
+            border:
+                2px solid
+                #cbd5e1;
+
+            border-top-color:
+                #2563eb;
+
+            border-radius: 50%;
+
+            animation:
+                spin 0.8s
+                linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+            max-width: 1050px;
+
+            margin:
+                18px auto 0;
+
+            text-align: center;
+
+            color: #71839a;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: #22b8ff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 650px) {
+
+            .topbar {
+                align-items: flex-start;
+            }
+
+            .brand strong {
+                font-size: 15px;
+            }
+
+            .brand small {
+                font-size: 9px;
+            }
+
+            .exam {
+                align-items: flex-start;
+            }
+
+            .actions {
+                margin-top: 4px;
+            }
+
+            .open,
+            .download {
+                padding:
+                    9px
+                    11px;
+            }
+
+            .open span,
+            .download span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .panel {
+                padding: 11px;
+
+                border-radius: 18px;
+            }
+
+            .exam {
+                padding: 13px;
+            }
+
+            .pdf-icon {
+                width: 42px;
+                height: 42px;
+
+                flex-basis: 42px;
+
+                font-size: 19px;
+            }
+
+            .info h3 {
+                font-size: 12px;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
 
-    <!-- PAGE 1: HERO PAGE -->
-    <div id="page1">
-        <h1 class="main-title">BESS</h1>
-        <p class="sub-title">BETEL EVANGELICAL SECONDARY SCHOOL EXAM PORTAL</p>
-        <button class="btn-next" onclick="goToExamPortal()">
-            Enter Exam Portal <i class="fa-solid fa-arrow-right"></i>
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section id="page1">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="hero">
+
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div class="badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            OFFICIAL EXAM PORTAL
+        </div>
+
+        <h1>BESS</h1>
+
+        <h2>
+            BETEL EVANGELICAL SECONDARY SCHOOL
+        </h2>
+
+        <p>
+            Exam papers and revision materials —
+            simple, fast and optimized for mobile.
+        </p>
+
+        <button
+            class="enter"
+            onclick="showPortal()"
+        >
+            Enter Exam Portal
+            <i class="fa-solid fa-arrow-right"></i>
         </button>
+
     </div>
 
-    <!-- PAGE 2: EXAM PORTAL -->
-    <div id="page2">
-        <header>
-            <h1><i class="fa-solid fa-graduation-cap"></i> Exam & Revision Materials</h1>
-            <p style="color: #94a3b8;">Select a document to view or download</p>
-        </header>
+</section>
 
-        <div class="container">
-            <div class="exam-list">
-                
-                <!-- 1. English Exam -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 Online english exam (simulated ).pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
 
-                <!-- 2. Biology Exam -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 Biology online EUEE exam p1 @NextGen_12.pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
 
-                <!-- 3. Mathematics (Simulated 1) -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 MATHEMATICS ONLINE EXAM SIMULATED (BY @NextGen_12) (1).pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
 
-                <!-- 4. SAT Exam -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 SATOnline exam by @NextGen_12.pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1YO4qpc_va1p6N9eUFuiF5pxYQTJyO_JF')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1YO4qpc_va1p6N9eUFuiF5pxYQTJyO_JF')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
+<section id="page2">
 
-                <!-- 5. Comprehensive Physics Revision -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>Comprehensive Physics Revision by @NextGen_12.pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
+    <div class="topbar">
 
-                <!-- 6. Online Mathematics Exam -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 Online Mathematics exam (simulated).pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
+        <div class="brand">
 
-                <!-- 7. Chemistry Exam -->
-                <div class="exam-item">
-                    <div class="exam-info">
-                        <i class="fa-solid fa-file-pdf exam-icon"></i>
-                        <div class="exam-details">
-                            <h3>2018 Chemistry EUEE Exam - @NextGen_12.pdf</h3>
-                            <span>PDF Document</span>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn-open" onclick="openPdf('12xGyAJhowqZ907aT0bnxc2BN40hVhomB')"><i class="fa-solid fa-eye"></i> Open</button>
-                        <button class="btn-download" onclick="downloadPdf('12xGyAJhowqZ907aT0bnxc2BN40hVhomB')"><i class="fa-solid fa-download"></i> Download</button>
-                    </div>
-                </div>
+            <div class="brand-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    BESS Exam Portal
+                </strong>
+
+                <small>
+                    Betel Evangelical Secondary School
+                </small>
 
             </div>
 
-            <!-- FOOTER SECTION -->
-            <footer>
-                <p>Telegram: <a href="https://t.me/Efi108" target="_blank" class="telegram-link"><i class="fa-brands fa-telegram"></i> @Efi108</a></p>
-                <p>Created by EFREM DAGIM grade 12 Bess 2019</p>
-            </footer>
         </div>
+
+        <button
+            class="back"
+            onclick="showHome()"
+            title="Home"
+        >
+            <i class="fa-solid fa-house"></i>
+        </button>
+
     </div>
 
-    <script>
-        function goToExamPortal() {
-            document.getElementById('page1').style.display = 'none';
-            document.getElementById('page2').style.display = 'block';
-        }
 
-        // Kitaaba sana brawuzerii irratti kallattiin banuuf
-        function openPdf(fileId) {
-            var url = 'https://drive.google.com/file/d/' + fileId + '/preview';
-            window.open(url, '_blank');
-        }
+    <div class="heading">
 
-        // Kitaaba sana kallattiin buufachuuf (Download)
-        function downloadPdf(fileId) {
-            var url = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            window.open(url, '_blank');
+        <h2>
+            Exam & Revision Materials
+        </h2>
+
+        <p>
+            PDF tokko filadhu; fuula kana keessaa
+            kallattiin ilaali yookaan buufadhu.
+        </p>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="search-wrap">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="Search: Mathematics, Biology, Physics..."
+                oninput="filterPdfs()"
+            >
+
+        </div>
+
+
+        <div
+            id="list"
+            class="list"
+        >
+
+
+            <!-- ENGLISH -->
+
+            <article
+                class="exam"
+                data-name="english 2018 online exam simulated"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 Online English Exam
+                        (Simulated).pdf
+                    </h3>
+
+                    <span>
+                        PDF • English
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ',
+                                '2018 Online English Exam'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1BWGnPzo2SoAIZL89xscpA8sIQJtRddKZ',
+                                '2018 Online English Exam.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- BIOLOGY -->
+
+            <article
+                class="exam"
+                data-name="biology 2018 online euee exam"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 Biology Online EUEE
+                        Exam P1.pdf
+                    </h3>
+
+                    <span>
+                        PDF • Biology
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN',
+                                '2018 Biology Online EUEE Exam P1'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1qVG_9X-DXO5btQqw9t-jOPhqqxYuw1nN',
+                                '2018 Biology Online EUEE Exam P1.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- MATHEMATICS 1 -->
+
+            <article
+                class="exam"
+                data-name="mathematics 2018 online exam simulated"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 Mathematics Online Exam
+                        Simulated (1).pdf
+                    </h3>
+
+                    <span>
+                        PDF • Mathematics
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22',
+                                '2018 Mathematics Online Exam'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1OxD6YIYDoOW8dqANjwszIkUMgKKNAe22',
+                                '2018 Mathematics Online Exam.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- SAT -->
+
+            <article
+                class="exam"
+                data-name="sat 2018 online exam"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 SAT Online Exam.pdf
+                    </h3>
+
+                    <span>
+                        PDF • SAT
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1YO4qpc_va1p6N9eUFuiF5pxYQTJyO_JF',
+                                '2018 SAT Online Exam'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1YO4qpc_va1p6N9eUFuiF5pxYQTJyO_JF',
+                                '2018 SAT Online Exam.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PHYSICS -->
+
+            <article
+                class="exam"
+                data-name="physics comprehensive revision"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        Comprehensive Physics
+                        Revision.pdf
+                    </h3>
+
+                    <span>
+                        PDF • Physics
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N',
+                                'Comprehensive Physics Revision'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1lW3KgJ07JjZ9qYZM5GKKX_cNcWu42Z5N',
+                                'Comprehensive Physics Revision.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- MATHEMATICS 2 -->
+
+            <article
+                class="exam"
+                data-name="mathematics online exam 2018 simulated"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 Online Mathematics Exam
+                        (Simulated).pdf
+                    </h3>
+
+                    <span>
+                        PDF • Mathematics
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ',
+                                '2018 Online Mathematics Exam'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '1mYFejlfLW7rY80_BLRdNO9gO14kgpHwZ',
+                                '2018 Online Mathematics Exam.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CHEMISTRY -->
+
+            <article
+                class="exam"
+                data-name="chemistry 2018 euee exam"
+            >
+
+                <div class="pdf-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <div class="info">
+
+                    <h3>
+                        2018 Chemistry EUEE
+                        Exam.pdf
+                    </h3>
+
+                    <span>
+                        PDF • Chemistry
+                    </span>
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="open"
+                        onclick="
+                            openPdf(
+                                '12xGyAJhowqZ907aT0bnxc2BN40hVhomB',
+                                '2018 Chemistry EUEE Exam'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Open</span>
+                    </button>
+
+                    <button
+                        class="download"
+                        onclick="
+                            downloadPdf(
+                                '12xGyAJhowqZ907aT0bnxc2BN40hVhomB',
+                                '2018 Chemistry EUEE Exam.pdf'
+                            )
+                        "
+                    >
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div
+            id="empty"
+            class="empty"
+        >
+
+            <i
+                class="fa-solid fa-folder-open"
+                style="font-size:28px;margin-bottom:10px"
+            ></i>
+
+            <p>
+                PDF hin argamne.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        Telegram:
+
+        <a
+            href="https://t.me/Efi108"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-telegram"></i>
+            @Efi108
+        </a>
+
+        <br>
+
+        Created by EFREM DAGIM
+        • Grade 12 BESS 2019
+
+    </footer>
+
+</section>
+
+
+
+<!-- =====================================================
+     PDF VIEWER
+===================================================== -->
+
+<div
+    id="viewer"
+    class="viewer"
+>
+
+    <div class="viewer-bar">
+
+        <div class="viewer-title">
+
+            <strong
+                id="viewerTitle"
+            >
+                PDF Viewer
+            </strong>
+
+            <small>
+                BESS • PDF keessatti ilaalaa jirta
+            </small>
+
+        </div>
+
+        <button
+            class="close"
+            onclick="closePdf()"
+        >
+            <i class="fa-solid fa-xmark"></i>
+            Cufi
+        </button>
+
+    </div>
+
+
+    <div class="frame-wrap">
+
+        <div
+            id="loading"
+            class="loading"
+        >
+
+            <span>
+
+                <i class="spin"></i>
+
+                PDF loading...
+
+            </span>
+
+        </div>
+
+
+        <iframe
+            id="pdfFrame"
+            title="BESS PDF Viewer"
+            allow="fullscreen"
+        ></iframe>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+    /* =========================================
+       GO TO PORTAL
+    ========================================== */
+
+    function showPortal() {
+
+        document.getElementById("page1").style.display =
+            "none";
+
+        document.getElementById("page2").style.display =
+            "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+
+    /* =========================================
+       GO HOME
+    ========================================== */
+
+    function showHome() {
+
+        closePdf();
+
+        document.getElementById("page2").style.display =
+            "none";
+
+        document.getElementById("page1").style.display =
+            "flex";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+
+    /* =========================================
+       OPEN PDF
+    ========================================== */
+
+    function openPdf(fileId, title) {
+
+        const viewer =
+            document.getElementById("viewer");
+
+        const frame =
+            document.getElementById("pdfFrame");
+
+        const loading =
+            document.getElementById("loading");
+
+
+        document.getElementById(
+            "viewerTitle"
+        ).textContent = title;
+
+
+        loading.style.display =
+            "grid";
+
+
+        frame.src =
+            "https://drive.google.com/file/d/"
+            + encodeURIComponent(fileId)
+            + "/preview";
+
+
+        viewer.style.display =
+            "flex";
+
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        frame.onload = function () {
+
+            loading.style.display =
+                "none";
+
+        };
+
+    }
+
+
+
+    /* =========================================
+       DOWNLOAD PDF
+    ========================================== */
+
+    function downloadPdf(fileId, fileName) {
+
+        const url =
+            "https://drive.google.com/uc?export=download&id="
+            + encodeURIComponent(fileId);
+
+
+        const link =
+            document.createElement("a");
+
+
+        link.href = url;
+
+        link.download = fileName;
+
+        link.target = "_blank";
+
+        link.rel = "noopener noreferrer";
+
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+    }
+
+
+
+    /* =========================================
+       CLOSE PDF
+    ========================================== */
+
+    function closePdf() {
+
+        const viewer =
+            document.getElementById("viewer");
+
+        const frame =
+            document.getElementById("pdfFrame");
+
+
+        viewer.style.display =
+            "none";
+
+
+        frame.src = "";
+
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+
+    /* =========================================
+       ESC KEY
+    ========================================== */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                closePdf();
+
+            }
+
         }
-    </script>
+    );
+
+
+
+    /* =========================================
+       SEARCH
+    ========================================== */
+
+    function filterPdfs() {
+
+        const search =
+            document
+                .getElementById("search")
+                .value
+                .toLowerCase()
+                .trim();
+
+
+        const items =
+            [
+                ...document.querySelectorAll(".exam")
+            ];
+
+
+        let visible = 0;
+
+
+        items.forEach(function(item) {
+
+            const name =
+                item.dataset.name;
+
+
+            if (name.includes(search)) {
+
+                item.style.display =
+                    "flex";
+
+                visible++;
+
+            } else {
+
+                item.style.display =
+                    "none";
+
+            }
+
+        });
+
+
+        document.getElementById("empty").style.display =
+            visible === 0
+                ? "block"
+                : "none";
+
+    }
+
+</script>
+
+
 </body>
 </html>
