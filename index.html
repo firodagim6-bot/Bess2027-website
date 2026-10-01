@@ -359,16 +359,15 @@
             document.getElementById('page2').style.display = 'block';
         }
 
-        // Brawuzerii bilbilaa irratti kallattiin akka banamuuf Google Docs Viewer fayyadamuu
+        // Kitaaba sana brawuzerii irratti kallattiin banuuf
         function openPdf(fileId) {
-            var downloadUrl = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            var url = 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(downloadUrl);
+            var url = 'https://drive.google.com/file/d/' + fileId + '/preview';
             window.open(url, '_blank');
         }
 
-        // Appii malee kallattiin brawuzeriin akka buufatu (download) gochuu
+        // Kitaaba sana kallattiin buufachuuf (Download)
         function downloadPdf(fileId) {
-            var url = 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=' + fileId;
+            var url = 'https://drive.google.com/uc?export=download&id=' + fileId;
             window.open(url, '_blank');
         }
     </script>
